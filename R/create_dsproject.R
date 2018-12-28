@@ -66,7 +66,7 @@ create_dsproject <- function(path) {
 
   print_styler("Activating packrat project")
   cat("\n")
-  packrat::init(infer.dependencies = FALSE, enter = FALSE)
+  packrat::init(path, infer.dependencies = FALSE, enter = FALSE)
   rstudioapi::openProject(usethis::proj_get())
 
   invisible(TRUE)
