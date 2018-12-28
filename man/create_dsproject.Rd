@@ -21,7 +21,6 @@ The function accepts a valid path (either relative or absolute) and applies thes
 text describing parameter inputs in more detail.
 \itemize{
  \item{"Folders"}{Creates folders code, data, report and misc inside \code{path}}
- \item{"Reporting"}{Installs Rmarkdown for reporting}
  \item{"RProjects"}{Creates an R project in \code{path}}
  \item{"Git"}{Initializes a Git repository in \code{path}}
  \item{"Documentation"}{Adds a README.Rmd for project purposes}

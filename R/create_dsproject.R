@@ -9,7 +9,6 @@
 #' @details text describing parameter inputs in more detail.
 #' \itemize{
 #'  \item{"Folders"}{Creates folders code, data, report and misc inside \code{path}}
-#'  \item{"Reporting"}{Installs Rmarkdown for reporting}
 #'  \item{"RProjects"}{Creates an R project in \code{path}}
 #'  \item{"Git"}{Initializes a Git repository in \code{path}}
 #'  \item{"Documentation"}{Adds a README.Rmd for project purposes}
@@ -34,12 +33,12 @@ create_dsproject <- function(path) {
   for (folder in dirs_create) dir.create(folder, recursive = TRUE)
   print_styler('Created folder ', dirs_create)
 
-  print_styler("Installing rmarkdown for reporting")
-  cat("\n")
 
-  unloadNamespace('rmarkdown')
-  utils::install.packages("rmarkdown")
-
+  if (!requireNamespace("rmarkdown", quietly = TRUE)) {
+    print_styler("Installing rmarkdown for reporting")
+    cat("\n")
+    utils::install.packages("rmarkdown")
+  }
 
   usethis::proj_set(path, force = TRUE)
   usethis::use_rstudio()
