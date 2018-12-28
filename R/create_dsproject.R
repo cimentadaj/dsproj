@@ -61,8 +61,8 @@ create_dsproject <- function(path) {
   unloadNamespace('packrat')
   utils::install.packages("packrat")
 
-  writeLines("packrat::on()", file.path(path, ".Rprofile"))
-  writeLines("options(repos = c(CRAN = 'https://cran.rstudio.com'))", file.path(path, ".Rprofile"))
+  write("packrat::on()", file.path(path, ".Rprofile"), append = TRUE)
+  write("options(repos = c(CRAN = 'https://cran.rstudio.com'))", file.path(path, ".Rprofile"), append = TRUE)
   initial_styler(paste0("Set packrat mode on as default in", crayon::blue(" .Rprofile")))
 
   print_styler("Activating packrat project")
