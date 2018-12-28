@@ -1,0 +1,20 @@
+Package: dsproj
+Title: Creates the ideal (opinionated) project template for a data science project
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Jorge",
+           family = "Cimentada",
+           role = c("aut", "cre"),
+           email = "cimentadaj@gmail.com")
+Description: Creates the ideal (opinionated) project template for a data science project by creating separate folders for code, data, among other things. It also creates an .Rproj, initializes a Git repository and installs and loads packrat for package dependency management. It finishes off by opening the .Rproj with packrat loaded.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    usethis,
+    crayon,
+    rstudioapi,
+    git2r,
+    packrat,
+    clisymbols
+RoxygenNote: 6.1.1

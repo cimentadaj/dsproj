@@ -1,0 +1,37 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+# dsproj
+
+The goal of dsproj is to create the ideal (opinionated) templated for a Data Science project.
+
+## Installation
+
+You can install the released version of dsproj from [Github](http://github.com/) with:
+
+```r
+install.packages("remotes")
+remotes::install_github('cimentadaj/dsproj')
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example, eval = FALSE}
+library(dsproj)
+
+project_folder <- tempdir()
+create_dsproject(project_folder)
+```
