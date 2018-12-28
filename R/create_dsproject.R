@@ -28,7 +28,7 @@
 create_dsproject <- function(path) {
   stopifnot(is.character(path))
 
-  path <- normalizePath(path, winslash = .Platform$file.sep)
+  path <- normalizePath(path, winslash = .Platform$file.sep, mustWork = FALSE)
   dirs_create <- file.path(path, c("code", "data", "report", "misc"))
   for (folder in dirs_create) dir.create(folder, recursive = TRUE)
   print_styler('Created folder ', dirs_create)
@@ -61,7 +61,7 @@ create_dsproject <- function(path) {
   unloadNamespace('packrat')
   utils::install.packages("packrat")
 
-  writeLines("packrat::on()", "./.Rprofile")
+  writeLines("packrat::on()", file.path(path, ".Rprofile"))
   initial_styler(paste0("Set packrat mode on as default in", crayon::blue(" .Rprofile")))
 
   print_styler("Activating packrat project")
