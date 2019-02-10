@@ -4,10 +4,13 @@
 \alias{create_dsproject}
 \title{Creates a template of folders and files for the 'ideal' data science project}
 \usage{
-create_dsproject(path)
+create_dsproject(path, open = FALSE)
 }
 \arguments{
 \item{path}{A path where to create the project template. Can be relative, absolute and non existent.}
+
+\item{open}{whether to open the RStudio project or not. Set to
+FALSE by default}
 }
 \value{
 Nothing, it creates and edits several folders and files in \code{path}

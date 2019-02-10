@@ -1,8 +1,9 @@
 #' Creates a template of folders and files for the 'ideal' data science project
 #'
 #' @param path A path where to create the project template. Can be relative, absolute and non existent.
-#'
-#'
+#' @param open whether to open the RStudio project or not. Set to
+#'     FALSE by default
+#' 
 #' @details
 #' The function accepts a valid path (either relative or absolute) and applies these steps:
 #'
@@ -25,7 +26,7 @@
 #' create_dsproject()
 #' }
 #'
-create_dsproject <- function(path) {
+create_dsproject <- function(path, open = FALSE) {
   stopifnot(is.character(path))
 
   path <- normalizePath(path, winslash = .Platform$file.sep, mustWork = FALSE)
@@ -68,7 +69,9 @@ create_dsproject <- function(path) {
   print_styler("Activating packrat project")
   cat("\n")
   packrat::init(path, infer.dependencies = FALSE, enter = FALSE)
-  rstudioapi::openProject(usethis::proj_get())
+
+  if (open) rstudioapi::openProject(usethis::proj_get())
 
   invisible(TRUE)
 }
+
